@@ -1,10 +1,14 @@
 pipeline {
      agent any
      stages {
-         stage('Upload to AWS') {
-              steps {
-                    s3Upload(acl: 'PublicReadWrite', bucket: 'udacityproj3', file: 'index.html', pathStyleAccessEnabled: true, payloadSigningEnabled: true)
-              }
+		 stage('Build') {
+             steps {
+                 sh 'echo "Hello World Amarinder"'
+                 sh '''
+                     echo "Multiline shell steps works too"
+                     ls -lah
+                 '''
+             }
          }
      }
 }
